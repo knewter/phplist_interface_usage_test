@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
   def index
     @lists            = Phplist.find(:all)
     if request.post? && params[:email]
-      lists = @lists.select{|l| params[:list_ids].include?(l.id.to_s)} }
+      lists = @lists.select{|l| params[:list_ids].include?(l.id.to_s) } 
       phplist_user = PhplistUser.find(:all, :params => { :email => params[:email] }).first rescue nil
       if phplist_user.nil?
         phplist_user = PhplistUser.create(:email => params[:email], :htmlemail => 1, :modified => DateTime.now)
