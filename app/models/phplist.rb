@@ -1,3 +1,3 @@
 class Phplist < ActiveResource::Base
-  self.site = "http://localhost:3000"
+  self.site = AR_SERVER
 end

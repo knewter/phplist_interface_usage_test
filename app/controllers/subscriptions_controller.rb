@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 
   def index
-    @lists            = Phplist.find(:all).select{|list| list.name =~ /Consumer|Retailer/}
+    @lists            = Phplist.find(:all)
     if request.post? && params[:email]
       phplist_user = PhplistUser.find(:all, :params => { :email => params[:email] }).first rescue nil
       if phplist_user.nil?

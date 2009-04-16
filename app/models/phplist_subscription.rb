@@ -1,5 +1,5 @@
 class PhplistSubscription < ActiveResource::Base
-  self.site = "http://localhost:3000"
+  self.site = AR_SERVER
 
   def self.unsubscribe_all user
     get :unsubscribe_user, :email => user.email
