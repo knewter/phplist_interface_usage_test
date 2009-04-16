@@ -1,0 +1,13 @@
+<h2>Mailing Lists</h2>
+<%# render_content 'mailing_lists_content' %>
+<% form_tag url_for({:controller => "subscriptions", :action => "index"}) do  %>
+  <label>Email Address:</label><%= text_field_tag :email %>
+  <div class="fleft">
+  <ul>
+  <% @lists.each do |list| %>
+    <li><%= check_box_tag "list_ids[]", list.id, false %> <%= list.name %></li>
+  <% end %>
+  </ul>
+  <%= submit_tag "Subscribe" %>
+  <%= submit_tag "Unsubscribe" %>
+<% end %>
